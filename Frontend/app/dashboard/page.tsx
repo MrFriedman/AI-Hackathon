@@ -14,7 +14,7 @@ function Dashboard() {
           <DashboardCard
             title="Autofill Claims Form"
             description="Generate a insurance claim form form with your information."
-            link="/claim"
+            link="http://localhost:5000/api/user/insurance-form"
           />
           <DashboardCard
             title="Generate Summary"

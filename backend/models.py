@@ -15,7 +15,7 @@ class User():
         self.insurance_name = None
         self.license_numbers = []
         self.incidents = [] # Stores ids of incidents
-        # Maybe files
+        self.notifications = []
 
     def getObject(self):
         # This is basically useless now.
@@ -31,7 +31,9 @@ class User():
                 "dob": self.dob,
                 "insurance_number": self.insurance_number,
                 "insurance_name": self.insurance_name,
-                "license_numbers": self.license_numbers
+                "license_numbers": self.license_numbers,
+                "notifications": self.notifications,
+                "incidents": self.incidents
                 }
 
 class Notification():

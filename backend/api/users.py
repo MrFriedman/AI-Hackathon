@@ -14,7 +14,7 @@ class UserRegistration(Resource):
 
         if database.users.insert_one(user):
             return {
-                    "success": "Registration successful",
+                    "message": "Registration successful",
                     "username": "User"
                     }, 200
 
@@ -26,7 +26,7 @@ class UserUpdateInformation(Resource):
         full_name = args.get("full_name")
         id_number = args.get("id_number")
         phone_number = args.get("phone_number")
-        home_addres = args.get("home_address")
+        home_address = args.get("home_address")
         insurance_number = args.get("insurance_number")
         insurance_name = args.get("insurance_name")
         license_number = args.get("license_plate")
@@ -45,7 +45,8 @@ class UserUpdateInformation(Resource):
 
 class UserAccount(Resource):
     def get(self):
-        if user = database.users.find_one({"username": "User"}):
+        user = database.users.find_one({"username": "User"})
+        if(user):
           username = user['username']
           full_name = user['full_name']
           email = user['email']
@@ -60,32 +61,32 @@ class UserAccount(Resource):
 
           return {"username": username,
                   "full_name": full_name,
-              "email": email,
-              "id_number": id_number,
-              "phone_number": phone_number,
-              "home_address": home_address,
-              "dob": dob,
-              "insurance_number": insurance_number,
-              "license_numbers": license_numbers,
-              "incidents": incidents}, 200
+                  "email": email,
+                  "id_number": id_number,
+                  "phone_number": phone_number,
+                  "home_address": home_address,
+                  "dob": dob,
+                  "insurance_number": insurance_number,
+                  "license_numbers": license_numbers,
+                  "incidents": incidents}, 200
         else:
             return {"message": "User could not be found."}, 400
 
 # User registration arguments
 # i.e: what the frontend needs to pass
 user_register_post_args = reqparse.RequestParser()
-user_register_post_args.add("username", type=str, help="Username missing", location="json", required=True)
-user_register_post_args.add("email", type=str, help="Email missing", location="json", required=True)
-user_register_post_args.add("password", type=str, help="Password missing", location="json", required=True)
-user_reigster_post_args.add("dob", type=str, help="DOB missing", location="json", required=True)
+user_register_post_args.add_argument("username", type=str, help="Username missing", location="json", required=True)
+user_register_post_args.add_argument("email", type=str, help="Email missing", location="json", required=True)
+user_register_post_args.add_argument("password", type=str, help="Password missing", location="json", required=True)
+user_register_post_args.add_argument("dob", type=str, help="DOB missing", location="json", required=True)
 
 # User update arguments
 # These are the arguments the user needs to provide to complete their account.
 user_update_post_args = reqparse.RequestParser()
-user_update_post_args.add("full_name", type=str, help="Full name missing", location="json", required=True)
-user_update_post_args.add("id_number", type=str, help="ID number missing", location="json", required=True)
-user_update_post_args.add("phone_number", type=str, help="Phone number missing", location="json", required=True)
-user_update_post_args.add("home_address", type=str, help="Home address missing", location="json", required=True)
-user_update_post_args.add("insurance_name", type=str, help="Insurance name missing", location="json", required=True)
-user_update_post_args.add("insurance_number", type=str, help="Insurance number missing", location="json", required=True)
-user_update_post_args.add("license_plate", type=str, help="License plate number missing", location="json", required=True)
+user_update_post_args.add_argument("full_name", type=str, help="Full name missing", location="json", required=True)
+user_update_post_args.add_argument("id_number", type=str, help="ID number missing", location="json", required=True)
+user_update_post_args.add_argument("phone_number", type=str, help="Phone number missing", location="json", required=True)
+user_update_post_args.add_argument("home_address", type=str, help="Home address missing", location="json", required=True)
+user_update_post_args.add_argument("insurance_name", type=str, help="Insurance name missing", location="json", required=True)
+user_update_post_args.add_argument("insurance_number", type=str, help="Insurance number missing", location="json", required=True)
+user_update_post_args.add_argument("license_plate", type=str, help="License plate number missing", location="json", required=True)

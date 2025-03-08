@@ -1,25 +1,19 @@
+import React from "react";
 
-{/*TO DO;
-  - Need to create and setup the backend 1. Create the Recording logic; 2. Api Endpoints; 3. Database; 4. Set up Container?
-*/}
-import React from 'react'
-
-const NotificationCard: React.FC = () => {
-  return (
-    <div className="bg-gray-800 p-6 rounded-2xl shadow-lg text-white">
-      <img 
-        alt="A detailed medical passport with patient information and medical history" 
-        className="w-full h-48 object-cover rounded-lg" 
-        src="https://placehold.co/300x200" 
-      />
-      <h2 className="text-xl font-bold mt-4">
-        7 March 2024 12:00
-      </h2>
-      <p className="mt-2 text-gray-300">
-        Location: University of Cape Town
-      </p>
-    </div>
-  )
+interface NotificationProps {
+  notification_id: string;
+  incident_id: string;
+  message: string;
 }
 
-export default NotificationCard
+const NotificationCard: React.FC<NotificationProps> = ({ notification_id, incident_id, message }) => {
+  return (
+    <div className="bg-gray-800 p-6 rounded-2xl shadow-lg text-white mb-4">
+      <h2 className="text-xl font-bold">{notification_id}</h2>
+      <p className="text-gray-300">Location: {incident_id}</p>
+      <p className="mt-2">{message}</p>
+    </div>
+  );
+};
+
+export default NotificationCard;

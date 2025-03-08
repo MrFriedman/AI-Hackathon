@@ -1,4 +1,6 @@
 from flask_restful import Resource, reqparse
+import os
+from flask import send_file
 from database import database
 import datetime
 import json
@@ -121,7 +123,7 @@ class FillInsurance(Resource):
         cell = user['phone_number']
         email = user['email']
         # TODO: vechicle = user['vechicle']
-        registration = user['license_numbers']
+        registration = user['license_number']
         home = user['home_address']
 
         # name = "bob"
@@ -166,5 +168,9 @@ class FillInsurance(Resource):
 
         fillpdfs.write_fillable_pdf(
             'api/template.pdf', 'api/filledIn.pdf', data_dict)
+       
+        if os.path.exists('api/filledIn.pdf'):
+            return send_file('api/filledIn.pdf', as_attachment=True)
+        else:
+            return {"message": "File doesn't exist."}, 400
 
-        return {"message": "Success", "pdf_file": "filledIn.pdf"}, 200

@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-glow: rgba(255, 255, 255, 0.15);
+  --secondary-glow: rgba(255, 255, 255, 0.25);
 }
 
 @theme inline {
@@ -12,6 +14,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +22,32 @@
   }
 }
 
+/* Apply to the entire app */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* Add futuristic glow effects */
+.glow-text {
+  text-shadow: 0px 0px 10px var(--secondary-glow);
+}
+
+.glow-border {
+  box-shadow: 0px 0px 12px var(--primary-glow);
+}
+
+/* Gradient Background for Sections */
+.section-gradient {
+  background: linear-gradient(180deg, #0a0a0a 0%, #111827 100%);
+}
+
+/* Cards and Buttons */
+.card {
+  @apply bg-gray-900 rounded-xl shadow-lg p-6 transition hover:shadow-2xl;
+}
+
+.button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
 }

@@ -1,6 +1,6 @@
 
 {/*TO DO;
-  - Need to create and setup the backend 1. Create the Recording logic; 2. Api Endpoints; 3. Database; 4. Set up Container; 5. Set up deployment env
+  - Need to create and setup the backend 1. Create the Recording logic; 2. Api Endpoints; 3. Database; 4. Set up Container?
 */}
 import React from 'react'
 

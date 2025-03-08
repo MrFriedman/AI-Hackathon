@@ -12,7 +12,7 @@ function Dashboard() {
         {/* Dashboard Options */}
         <div className="space-y-4">
           <DashboardCard
-            title="View Reports"
+            title="View Reports - CC's pdf writer here"
             description="Access and review your accident reports in detail."
             link="/reports"
           />
@@ -37,7 +37,7 @@ function Dashboard() {
             link="/share"
           />
           <DashboardCard
-            title="Analyze Trends"
+            title="Analyse Trends - CC's map here"
             description="View data insights and identify patterns."
             link="/analytics"
           />

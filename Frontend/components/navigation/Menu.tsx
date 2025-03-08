@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu as MenuIcon, X as CloseIcon } from "lucide-react";
+import logo from '@/public/logo.svg';
+import Image from "next/image"
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +14,12 @@ function Menu() {
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <h2 className="text-2xl font-bold tracking-wide text-cyan-400">
-          ActiveGuard
-        </h2>
+        <div className="flex items-center">
+          <Image src={logo} alt="ActiveGuard Logo" width={60} height={60} />
+          <h2 className="text-2xl font-bold tracking-wide text-cyan-400">
+            ActiveGuard
+          </h2>
+        </div>
 
         {/* Hamburger Menu for Small Screens */}
         <button

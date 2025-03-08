@@ -1,0 +1,5 @@
+{
+    "notification_id": "4",
+    "message": "You were in an accident on Pienaar Road Milnerton, and are possibly eligible for an insurance claim. ",
+    "incident_id": "4"
+}

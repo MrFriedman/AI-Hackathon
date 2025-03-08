@@ -1,0 +1,5 @@
+{
+    "notification_id": "2",
+    "message": "Your uploaded video footage for the accident on 21/03/25 has been processed and analysed. ",
+    "incident_id": "2"
+}

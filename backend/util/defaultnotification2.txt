@@ -1,5 +1,5 @@
 {
     "notification_id": "1",
-    "message": "You were in an accident on the N2, and are possibly eligable for an insurance claim. ",
+    "message": "You were in an accident on the N2, and are possibly eligible for an insurance claim. ",
     "incident_id": "1"
 }

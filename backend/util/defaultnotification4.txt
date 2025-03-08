@@ -1,0 +1,5 @@
+{
+    "notification_id": "3",
+    "message": "A recent crash has occurred near you on 21 Sunshine Lane, Mowbray. ",
+    "incident_id": "3"
+}

@@ -36,6 +36,11 @@ function Dashboard() {
             description="View accidents on a map based on the coordinates of your most recent accident."
             link="/analytics"
           />
+          <DashboardCard
+            title="Accident Awareness"
+            description="View accidents on a map based on the coordinates of your most recent accident."
+            link="/analytics"
+          />
         </div>
       </div>
     </div>

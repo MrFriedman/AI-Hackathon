@@ -32,6 +32,7 @@ function Dashboard() {
           <DashboardCard
             title="View local accident mapping"
             description="View accidents on a map based on the coordinates of your most recent accident."
+            link="/map"
           />
           <DashboardCard
             title="Accident Awareness"

@@ -36,6 +36,8 @@ Ensure you are in the root directory of this repository.
 
 `cd Frontend`
 
+`npm i`
+
 `npm run dev`
 
 `cd ../backend`

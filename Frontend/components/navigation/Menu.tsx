@@ -10,14 +10,16 @@ function Menu() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className="container mx-auto p-4">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl text-black font-bold">ActiveGuard</h2>
+    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
+      <div className="container mx-auto flex justify-between items-center">
+        {/* Logo */}
+        <h2 className="text-2xl font-bold tracking-wide text-cyan-400">
+          ActiveGuard
+        </h2>
 
         {/* Hamburger Menu for Small Screens */}
         <button
-          className="md:hidden text-black focus:outline-none pr-5"
+          className="md:hidden text-white focus:outline-none pr-5"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -25,43 +27,40 @@ function Menu() {
         </button>
 
         {/* Horizontal Menu for Larger Screens */}
-        <div className="hidden md:flex gap-5">
+        <div className="hidden md:flex gap-6">
           <NavLinks />
         </div>
       </div>
 
       {/* Dropdown Menu (Small Screens) */}
       {isOpen && (
-        <div className="md:hidden flex flex-col items-center gap-4">
+        <div className="md:hidden flex flex-col items-center gap-4 mt-4 animate-fade-in">
           <NavLinks />
         </div>
       )}
-    </div>
+    </nav>
   );
 }
 
-// Reusable Navigation Links Component
+const links = {
+  Home: "/dashboard",
+  "Manage Account": "/account",
+  Notifications: "/notifications",
+};
+
 const NavLinks = () => (
   <div className="flex flex-col md:flex-row items-center gap-4">
-    <Link
-      href="/dashboard"
-      className="w-40 flex justify-center bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >
-      Home
-    </Link>
-    <Link
-      href="/account"
-      className="w-40 flex justify-center bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >
-      Manage Account
-    </Link>
-    <Link
-      href="/notifications"
-      className="w-40 flex justify-center bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-    >
-      Notifications
-    </Link>
+    {Object.entries(links).map(([label, href]) => (
+      <Link
+        key={label}
+        href={href}
+        className="w-40 flex justify-center bg-gray-800 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-md transition-all duration-300 shadow-md hover:shadow-lg"
+      >
+        {label}
+      </Link>
+    ))}
   </div>
 );
+
 
 export default Menu;

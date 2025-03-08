@@ -1,4 +1,6 @@
 flask
+pandas
+fillpdf
 pymongo
 flask_restful
 requests

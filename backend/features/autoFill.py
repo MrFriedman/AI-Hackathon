@@ -5,6 +5,8 @@ import json
 import pandas as pd
 from fillpdf import fillpdfs
 
+# This whole thing just does it for 1 report
+# Given the time.
 class FillInsurance(Resource):
     with open('data.json', 'r') as json_file:
         json_data = json.load(json_file)
@@ -118,13 +120,15 @@ class FillInsurance(Resource):
     email = user['email']
     # TODO: vechicle = user['vechicle']
     registration = user['license_numbers']
+    home = user['home_address']
 
-    name = "JOE BLACK"
-    cell = "081 495 8552"
-    email = "cc.cohen.cc@gmail.com"
+
+   # name = "JOE BLACK"
+   # cell = "081 495 8552"
+   # email = "cc.cohen.cc@gmail.com"
     vehicle = "Mazda CX-3"
-    registration = "CA458609"
-    home = "20 Ascot Road Milnerton Cape Town"
+   # registration = "CA458609"
+    #home = "20 Ascot Road Milnerton Cape Town"
     damage = json_data["description"]["generated"]
     weather = json_data["weather"]
     date = json_data["accidentDate"]
@@ -157,3 +161,8 @@ class FillInsurance(Resource):
         data_dict[form_fields[dateIndexes[i]]] = date
 
     fillpdfs.write_fillable_pdf('template.pdf', 'filledIn.pdf', data_dict)
+
+    return {
+            "message": "Success",
+            "pdf_file": "filledIn.pdf" # This just returns the filename
+            }, 200

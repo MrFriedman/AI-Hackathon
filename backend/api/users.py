@@ -11,11 +11,6 @@ class UserRegistration(Resource):
         dob = args.get("dob")
 
         user = User("User", email, password, dob).getObject()
-        
-        if(database.users.find_one({"username": "User"})):
-            return {
-                    "message": "Error, user already exists.", 400
-                    }
 
         if database.users.insert_one(user):
             return {
@@ -51,32 +46,29 @@ class UserUpdateInformation(Resource):
 class UserAccount(Resource):
     def get(self):
         user = database.users.find_one({"username": "User"})
-        if user:
+        if(user):
+          username = user['username']
+          full_name = user['full_name']
+          email = user['email']
+          id_number = user['id_number']
+          phone_number = user['phone_number']
+          home_address = user['home_address']
+          dob = user['dob']
+          insurance_number = user['insurance_number']
+          insurance_name = user['insurance_name']
+          license_numbers = user['license_numbers']
+          incidents = user['incidents']
 
-            username = user['username']
-            full_name = user['full_name']
-            email = user['email']
-            id_number = user['id_number']
-            phone_number = user['phone_number']
-            home_address = user['home_address']
-            dob = user['dob']
-            insurance_number = user['insurance_number']
-            insurance_name = user['insurance_name']
-            license_numbers = user['license_numbers']
-            incidents = user['incidents']
-            notifications = user['notifications'] 
-
-            return {"username": username,
-                    "full_name": full_name,
-                "email": email,
-                "id_number": id_number,
-                "phone_number": phone_number,
-                "home_address": home_address,
-                "dob": dob,
-                "insurance_number": insurance_number,
-                "license_numbers": license_numbers,
-                "incidents": incidents,
-                "notifications": notifcations}, 200
+          return {"username": username,
+                  "full_name": full_name,
+                  "email": email,
+                  "id_number": id_number,
+                  "phone_number": phone_number,
+                  "home_address": home_address,
+                  "dob": dob,
+                  "insurance_number": insurance_number,
+                  "license_numbers": license_numbers,
+                  "incidents": incidents}, 200
         else:
             return {"message": "User could not be found."}, 400
 

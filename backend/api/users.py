@@ -58,6 +58,7 @@ class UserAccount(Resource):
           insurance_name = user['insurance_name']
           license_numbers = user['license_numbers']
           incidents = user['incidents']
+          notifications = user['notifications']
 
           return {"username": username,
                   "full_name": full_name,
@@ -68,7 +69,8 @@ class UserAccount(Resource):
                   "dob": dob,
                   "insurance_number": insurance_number,
                   "license_numbers": license_numbers,
-                  "incidents": incidents}, 200
+                  "incidents": incidents,
+                  "notifications": notifications}, 200
         else:
             return {"message": "User could not be found."}, 400
 

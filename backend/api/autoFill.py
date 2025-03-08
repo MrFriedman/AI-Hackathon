@@ -10,11 +10,12 @@ from fillpdf import fillpdfs
 class FillInsurance(Resource):
     def get(self):
 
-        with open('data.json', 'r') as json_file:
+        with open('api/data.json', 'r') as json_file:
             json_data = json.load(json_file)
-
-        form_fields = list(fillpdfs.get_form_fields('template.pdf').keys())
-
+        
+        template_file = open('api/template.pdf')
+        form_fields = list(fillpdfs.get_form_fields(template_file).keys())
+        template_file.close()
 
         # Search for the field containing 'name and surname'
         nameField = None

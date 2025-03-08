@@ -2,14 +2,19 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu as MenuIcon, X as CloseIcon } from "lucide-react";
 import logo from '@/public/logo.svg';
-import Image from "next/image"
+import Image from "next/image";
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Hide links on these pages
+  const hideNavLinks = ["/", "/register", "/login"].includes(pathname);
 
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">
@@ -22,22 +27,26 @@ function Menu() {
         </div>
 
         {/* Hamburger Menu for Small Screens */}
-        <button
-          className="md:hidden text-white focus:outline-none pr-5"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <CloseIcon size={28} /> : <MenuIcon size={28} />}
-        </button>
+        {!hideNavLinks && (
+          <button
+            className="md:hidden text-white focus:outline-none pr-5"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <CloseIcon size={28} /> : <MenuIcon size={28} />}
+          </button>
+        )}
 
         {/* Horizontal Menu for Larger Screens */}
-        <div className="hidden md:flex gap-6">
-          <NavLinks />
-        </div>
+        {!hideNavLinks && (
+          <div className="hidden md:flex gap-6">
+            <NavLinks />
+          </div>
+        )}
       </div>
 
       {/* Dropdown Menu (Small Screens) */}
-      {isOpen && (
+      {isOpen && !hideNavLinks && (
         <div className="md:hidden flex flex-col items-center gap-4 mt-4 animate-fade-in">
           <NavLinks />
         </div>
@@ -65,6 +74,5 @@ const NavLinks = () => (
     ))}
   </div>
 );
-
 
 export default Menu;

@@ -28,11 +28,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen flex flex-col bg-black text-white">
+        <div className="min-h-screen flex flex-col bg-gray-900 text-white">
           <Menu />
           <main className="flex-grow container mt-8">{children}</main>
           <footer className="text-center p-4 text-gray-400">
-            © {new Date().getFullYear()} Resemble AI - All rights reserved.
+            © {new Date().getFullYear()} Resemble AI & The Keyboard Smashers - All rights reserved. (Dylan Friedman, Conor Mckeage, CC Cohen)
           </footer>
         </div>
       </body>

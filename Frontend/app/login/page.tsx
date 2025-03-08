@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-function LoginPage() {
+export default function Login() {
   return (
     <div className="w-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black">
       <div className="bg-gray-800 text-white p-8 rounded-2xl shadow-lg w-full max-w-lg">
@@ -21,7 +21,7 @@ function LoginPage() {
               type="text"
             />
           </div>
-          <div>
+          <div className="pb-5">
             <label className="block text-gray-300 text-sm font-bold mb-2">
               User Password
             </label>
@@ -31,12 +31,6 @@ function LoginPage() {
               type="password"
             />
           </div>
-          <div className="flex items-center">
-            <input id="consent" type="checkbox" className="mr-2 w-4 h-4" />
-            <label htmlFor="consent" className="text-gray-300 text-sm">
-              I consent to the sharing of video footage to Resembler.AI
-            </label>
-          </div>
           <Link
             href="/dashboard"
             className="block bg-cyan-500 hover:bg-cyan-600 text-center text-white font-bold py-3 px-6 rounded-lg transition duration-200"
@@ -44,9 +38,15 @@ function LoginPage() {
             Login
           </Link>
         </form>
+        <div className="mt-6 text-center">
+          <p className="text-center text-gray-300 mt-4">
+          Don't have an account?{' '}
+          <Link href="/register" className="text-cyan-400 hover:underline">
+          Sign up
+          </Link>
+        </p>
+        </div>
       </div>
     </div>
   );
 }
-
-export default LoginPage;

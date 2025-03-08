@@ -1,6 +1,7 @@
 class User():
     def __init__(self, username, email, password, dob):
         self.username = username
+        self.full_name = None
         self.email = email
         self.password = password # Not encrypted, just a prototype so its fine.
         self.id_number = None
@@ -17,8 +18,11 @@ class User():
         # Maybe files
 
     def getObject(self):
+        # This is basically useless now.
+        # fun
         return {
                 "username": self.username,
+                "full_name": self.full_name,
                 "email": self.email,
                 "password": self.password,
                 "id_number": self.id_number,
@@ -36,6 +40,7 @@ class Notification():
         self.message = message
 
     def getObject(self):
+        # This too
         return {
                 "incident_id": self.incident_id,
                 "message": self.message

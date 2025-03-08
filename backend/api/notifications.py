@@ -14,5 +14,6 @@ class Notification(Resource):
 
         return {"notification_list": notification_list}, 200
 
+
         
 

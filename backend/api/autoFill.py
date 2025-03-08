@@ -7,15 +7,16 @@ from fillpdf import fillpdfs
 
 # This whole thing just does it for 1 report
 # Given the time.
+
+
 class FillInsurance(Resource):
     def get(self):
 
         with open('api/data.json', 'r') as json_file:
             json_data = json.load(json_file)
-        
-        template_file = open('api/template.pdf')
-        form_fields = list(fillpdfs.get_form_fields(template_file).keys())
-        template_file.close()
+
+        # template_file = open('api/template.pdf')
+        form_fields = list(fillpdfs.get_form_fields('api/template.pdf').keys())
 
         # Search for the field containing 'name and surname'
         nameField = None
@@ -112,8 +113,8 @@ class FillInsurance(Resource):
                 print(f"Found name field: {videoField}")
 
         user = database.users.find_one({"username": "User"})
-    
-        if(not user):
+
+        if (not user):
             return {"message": "User does not exist"}, 400
 
         name = user['full_name']
@@ -122,6 +123,13 @@ class FillInsurance(Resource):
         # TODO: vechicle = user['vechicle']
         registration = user['license_numbers']
         home = user['home_address']
+
+        # name = "bob"
+        # cell = "0824884845"
+        # email = "gmail"
+        # # # TODO: vechicle = user['vechicle']
+        # registration = "ca49w3i52035i"
+        # home = "nlono"
 
         vehicle = "Mazda CX-3"
         damage = json_data["description"]["generated"]
@@ -147,7 +155,8 @@ class FillInsurance(Resource):
         }
 
         for i in range(len(emailFields)):
-            data_dict[form_fields[emailIndexes[i]]] = email  # Fill each email field
+            data_dict[form_fields[emailIndexes[i]]
+                      ] = email  # Fill each email field
 
         for i in range(len(cellFields)):
             data_dict[form_fields[cellIndexes[i]]] = cell
@@ -155,6 +164,7 @@ class FillInsurance(Resource):
         for i in range(len(dateFields)):
             data_dict[form_fields[dateIndexes[i]]] = date
 
-        fillpdfs.write_fillable_pdf('template.pdf', 'filledIn.pdf', data_dict)
+        fillpdfs.write_fillable_pdf(
+            'api/template.pdf', 'api/filledIn.pdf', data_dict)
 
-        return { "message": "Success","pdf_file": "filledIn.pdf"}, 200
+        return {"message": "Success", "pdf_file": "filledIn.pdf"}, 200

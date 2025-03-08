@@ -16,13 +16,42 @@ Main features include:
   The user will be able to obtain an analysis of their video footage.
 - **Autofill of insurance claim forms**\
   Most drivers will need to fill in a claim form and submit it to their insurance provider. This platform can help streamline this process by autofilling in claims form with the driver's information and accident details from the video footage.
-- **Local accident GPS tracker**\
-  Geospatial data from video footage analysis is used to make this.
 - **Generate report summary for sharing**
 
 # Project execution
 
-Since one of the key features of this Hackathon is a **working Prototype**, please provide a step-by-step guide on how to run your submission.
+## Requirements
+- Docker
+- Docker-compose
+- npm
+- Python
+
+## Usage
+
+Ensure you are in the root directory of this repository.
+
+`docker compose up --detach`
+
+`pip install -r requirements.txt` -> alternatively, you can create a virtual environment if you don't want to install globally.
+
+`cd Frontend`
+
+`npm run dev`
+
+`cd ../backend`
+
+`python app.py`
+
+Navigate to `localhost:3000`
+
+### Post setup
+
+- Register an account
+- Ensure that you complete the full setup of an account.
+    - Otherwise features of this prototype will not function.
+- From here, navigate to the notifications.
+    - These notifications are just a demostration of what could be.
+    - Click on any of the notifications and then try the autofill claims form.
 
 # Future Roadmap
 
@@ -30,8 +59,8 @@ Future uses of our application:
 
 - Low-cost dashcams can be sold with our system.
 - Users can opt in to share their video footage to a network of other users to promote road safety awareness and prevalence of reckless driving.
-- What makes your application scalable?
-- What is missing in your current implementation that you would include in a production grade application?
+    - This essentially allows users to rely on each other for related accidents.
+    - For example, if person A captured an accident that occured to person B, then if person B is a registered user (i.e license plate) they will be notified with related information.
 
 # Additional comments
 

@@ -20,7 +20,6 @@ const NotificationsPage: React.FC = () => {
 
         const data = await response.json()
         if (data.notifications) {
-          console.log(data.notifications)
           setNotifications(data.notifications)
         }
       } catch (error) {

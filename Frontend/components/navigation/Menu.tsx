@@ -14,7 +14,7 @@ function Menu() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // Hide links on these pages
-  const hideNavLinks = ["/", "/register", "/login"].includes(pathname);
+  const hideNavLinks = ["/", "/register", "/login", "/accountsetup"].includes(pathname);
 
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 shadow-md">

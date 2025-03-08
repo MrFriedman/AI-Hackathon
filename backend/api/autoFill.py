@@ -122,16 +122,8 @@ class FillInsurance(Resource):
         name = user['full_name']
         cell = user['phone_number']
         email = user['email']
-        # TODO: vechicle = user['vechicle']
         registration = user['license_number']
         home = user['home_address']
-
-        # name = "bob"
-        # cell = "0824884845"
-        # email = "gmail"
-        # # # TODO: vechicle = user['vechicle']
-        # registration = "ca49w3i52035i"
-        # home = "nlono"
 
         vehicle = "Mazda CX-3"
         damage = json_data["description"]["generated"]

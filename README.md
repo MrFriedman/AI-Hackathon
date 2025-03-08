@@ -7,8 +7,10 @@
 
 # Project description
 
-Please provide a comprehensive description of your approach to the given problem statement. Add images, charts, links, anything that you think is necessary to describe your submission.
 This is a centralized platform for accident reporting, designed to encourage drivers, passengers, and bystanders to upload digital evidence of road incidents. The primary form of evidence includes video footage from dashcams and smartphones.
+
+The system aims to encourage social awareness as users are notified when they are identified in a accident event. The accident footage would analyze 3rd parties for accident events as well as analyze footage for the user themselves, and if a 3rd party or a user is identified on the system then they are notified of the event. In this way users are accounted for even when the footage is not coming from them. By building a network of surveillance, users protect each other's well being and safety.
+
 
 Main features include:
 

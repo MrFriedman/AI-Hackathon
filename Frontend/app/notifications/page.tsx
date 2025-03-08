@@ -19,6 +19,7 @@ const NotificationsPage: React.FC = () => {
         if (!response.ok) throw new Error('Failed to fetch account data')
 
         const data = await response.json()
+        console.log('API Response:', data)
         if (data.notifications) {
           setNotifications(data.notifications)
         }

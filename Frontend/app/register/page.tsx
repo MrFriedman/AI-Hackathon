@@ -120,7 +120,7 @@ export default function Register() {
             type="submit"
             className="block bg-cyan-500 hover:bg-cyan-600 text-center text-white font-bold py-3 px-6 rounded-lg transition duration-200 w-full"
           >
-            Sign Up
+              Sign Up
           </button>
         </form>
 

@@ -3,8 +3,8 @@ from database import database
 from models import Notification
 class Notification(Resource):
     def get(self):
-       
-        notifications = database.notifications.find({'notification_id': '0'})
+               
+        notifications = database.notifications.find()
         # Create empty list for notifications
         notification_list = []
 

@@ -3,7 +3,7 @@ class User():
         self.username = username
         self.full_name = None
         self.email = email
-        self.password = password # Not encrypted, just a prototype so its fine.
+        self.password = password # Not encrypted, "just a prototype so its fine".
         self.id_number = None
         self.phone_number = None
         self.home_address = None
@@ -17,9 +17,21 @@ class User():
         self.incidents = [] # Stores ids of incidents
         self.notifications = []
 
+        # Create the fake notifications
+        # We're gonna just open multiple files and store as json objects.
+        # I know there are more efficient ways of doing this, I'm just honestly
+        # fed up with python - please for the love of god take me back to C++
+        notification_file = open("util/defaultnotification1.txt")
+        default_notification = json.load(notification_file)
+        self.notifications.append(default_notification)
+        notification_file.close()
+        
+        notification_file = open("util/defaultnotification2.txt")
+        default_notification = json.load(notification_file)
+        self.notifications.append(default_notification)
+        notification_file.close()
+
     def getObject(self):
-        # This is basically useless now.
-        # fun
         return {
                 "username": self.username,
                 "full_name": self.full_name,
@@ -42,7 +54,6 @@ class Notification():
         self.message = message
 
     def getObject(self):
-        # This too
         return {
                 "incident_id": self.incident_id,
                 "message": self.message

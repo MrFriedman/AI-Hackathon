@@ -11,10 +11,15 @@ class UserRegistration(Resource):
         dob = args.get("dob")
 
         user = User("User", email, password, dob).getObject()
+        
+        if(database.users.find_one({"username": "User"})):
+            return {
+                    "message": "Error, user already exists.", 400
+                    }
 
         if database.users.insert_one(user):
             return {
-                    "success": "Registration successful",
+                    "message": "Registration successful",
                     "username": "User"
                     }, 200
 
@@ -59,6 +64,7 @@ class UserAccount(Resource):
             insurance_name = user['insurance_name']
             license_numbers = user['license_numbers']
             incidents = user['incidents']
+            notifications = user['notifications'] 
 
             return {"username": username,
                     "full_name": full_name,
@@ -69,7 +75,8 @@ class UserAccount(Resource):
                 "dob": dob,
                 "insurance_number": insurance_number,
                 "license_numbers": license_numbers,
-                "incidents": incidents}, 200
+                "incidents": incidents,
+                "notifications": notifcations}, 200
         else:
             return {"message": "User could not be found."}, 400
 

@@ -3,7 +3,7 @@ import DashboardCard from '@/components/cards/DashboardCard';
 
 function Dashboard() {
   return (
-    <div className="w-screen flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 to-black">
+    <div className="w-screen min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black p-6">
       {/* Centered Card */}
       <div className="bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-2xl">
         {/* Header */}
@@ -12,9 +12,9 @@ function Dashboard() {
         {/* Dashboard Options */}
         <div className="space-y-4">
           <DashboardCard
-            title="View Reports - CC's pdf writer here"
-            description="Access and review your accident reports in detail."
-            link="/reports"
+            title="Autofill Claims Form"
+            description="Generate a insurance claim form form with your information."
+            link="/claim"
           />
           <DashboardCard
             title="Generate Summary"
@@ -27,24 +27,14 @@ function Dashboard() {
             link="/import"
           />
           <DashboardCard
-            title="Export Data"
-            description="Download accident report data in multiple formats."
-            link="/export"
-          />
-          <DashboardCard
             title="Share Report"
             description="Securely share accident details with relevant parties."
             link="/share"
           />
           <DashboardCard
-            title="Analyse Trends - CC's map here"
-            description="View data insights and identify patterns."
+            title="View local accident mapping"
+            description="View accidents on a map based on the coordinates of your most recent accident."
             link="/analytics"
-          />
-          <DashboardCard
-            title="Manage Preferences"
-            description="Customize your accident report settings and preferences."
-            link="/settings"
           />
         </div>
       </div>

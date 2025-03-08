@@ -3,9 +3,10 @@ from flask_restful import Api, Resource
 from database import database
 from api.users import UserRegistration, UserUpdateInformation, UserAccount 
 from api.autoFill import FillInsurance 
+from flask_cors import CORS # type: ignore
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 def init():
 
     # Test database connection

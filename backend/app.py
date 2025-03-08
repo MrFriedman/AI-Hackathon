@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api, Resource
 from database import database
 from api.users import UserRegistration, UserUpdateInformation, UserAccount 
-
+from api.autoFill import FillInsurance 
 
 app = Flask(__name__)
 
@@ -20,7 +20,8 @@ api = Api(app)
 api.add_resource(UserRegistration, "/api/user/register")
 api.add_resource(UserUpdateInformation, "/api/user/update-information")
 api.add_resource(UserAccount, "/api/user/account")
-    
+api.add_resource(FillInsurance, "/api/user/insurance-form")
+
 if __name__ == "__main__":
     init()
     app.run(debug=True, host="localhost")

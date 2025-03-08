@@ -19,27 +19,23 @@ function Dashboard() {
           <DashboardCard
             title="Generate Summary"
             description="Create a summarized version of your accident data."
-            link="/summary"
           />
           <DashboardCard
             title="Import Data"
             description="Upload accident report data in multiple formats."
-            link="/import"
           />
           <DashboardCard
             title="Share Report"
             description="Securely share accident details with relevant parties."
-            link="/share"
+
           />
           <DashboardCard
             title="View local accident mapping"
             description="View accidents on a map based on the coordinates of your most recent accident."
-            link="/analytics"
           />
           <DashboardCard
             title="Accident Awareness"
-            description="View accidents on a map based on the coordinates of your most recent accident."
-            link="/analytics"
+            description="View local reports on accident statistics to improve road safety and driver experience."
           />
         </div>
       </div>

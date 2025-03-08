@@ -1,0 +1,5 @@
+{
+    "notification_id": "0",
+    "message": "You witnessed a crash at 53 Pythonsux Way of a registered user, we have sent them the crash data. :)",
+    "incident_id": "0"
+}
